@@ -6,42 +6,42 @@
     <title>Weather App | Odin Project</title>
   </head>
   <body>
-  <header id="header">
-    <h1>Weekly Weather Watcher</h1>
-    <form action="#" method="post">
-      <label for="inputLocation">Enter Location</label>
-      <input type="text" id="inputLocation"></input>
-      <button id="searchLocation">Search</button>
-    </form>
-  </header>
-  <main>
-    <div id="weatherInfoContainer">
-      <div id="currentWeekInfo">
-        <h2>Week Temp: <span class="span temp"></span></h2>
-        <p>Week Description:</p>
+    <header id="header">
+      <h1>Weekly Weather Watcher</h1>
+      <form action="#" method="post">
+        <label for="inputLocation">Enter Location</label>
+        <input type="text" id="inputLocation" />
+        <button id="searchLocation">Search</button>
+      </form>
+    </header>
+    <main>
+      <div id="weatherInfoContainer">
+        <div id="currentWeekInfo">
+          <h2>Week Temp: <span class="span temp"></span></h2>
+          <p>Week Description:</p>
+        </div>
+        <div id="selectDateContianer">
+          <button class="button day1">NOW</button>
+          <button class="button day2">DAY 2</button>
+          <button class="button day3">DAY 3</button>
+          <button class="button day4">DAY 4</button>
+          <button class="button day5">DAY 5</button>
+          <button class="button day6">DAY 6</button>
+          <button class="button day7">DAY 7</button>
+        </div>
       </div>
-      <div id="selectDateContianer">
-        <button class="button day1">NOW</button>
-        <button class="button day2">DAY 2</button>
-        <button class="button day3">DAY 3</button>
-        <button class="button day4">DAY 4</button>
-        <button class="button day5">DAY 5</button>
-        <button class="button day6">DAY 6</button>
-        <button class="button day7">DAY 7</button>
+      <div id="dayInfoPanel">
+        <div class="dayInfoLeft">
+          <h3 class="dayInfo">Timezone:</h3>
+          <h3 class="dayInfo">Address:</h3>
+          <h3 class="dayInfo">Temp:</h3>
+        </div>
+        <div class="dayInfoRight">
+          <h3 class="dayInfo">Description:</h3>
+          <h3 class="dayInfo">Latitude:</h3>
+          <h3 class="dayInfo">Longitude:</h3>
+        </div>
       </div>
-    </div>
-    <div id="dayInfoPanel">
-      <div class="dayInfoLeft">
-        <h3 class="dayInfo">Timezone:</h3>
-        <h3 class="dayInfo">Address:</h3>
-        <h3 class="dayInfo">Temp:</h3>
-      </div>
-      <div class="dayInfoRight">  
-        <h3 class="dayInfo">Description:</h3>
-        <h3 class="dayInfo">Latitude:</h3>
-        <h3 class="dayInfo">Longitude:</h3>
-      </div>
-    </div>
-  </main>
+    </main>
   </body>
 </html>
