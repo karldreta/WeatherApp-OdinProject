@@ -21,9 +21,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 
   async function displayToDOM(e) {
-    // We'll pass in the dates to only fetch the ones we need
+    // Then, we'll pass in the dates to only fetch the ones we need
     const locationDetails = await fetchLocation(e, dateToday, dateEnd);
     console.log(locationDetails);
-    console.log(locationDetails.currentWeek[0].temp);
+
+    // Render to DOM, well don't need to store the variables since we'll just  use it immediately and once.
+    document.querySelector(".span.temp").textContent = locationDetails.tempWeek;
+    document.querySelector(".span.description").textContent = locationDetails.descriptionWeek;
+
   }
 });
