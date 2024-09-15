@@ -1,10 +1,6 @@
-import { format, endOfWeek } from "date-fns";
-
-export async function fetchLocation(e) {
+export async function fetchLocation(e, dateToday, dateEnd) {
   e.preventDefault();
 
-  const dateToday = format(new Date(), "yyyy-MM-dd");
-  const dateEnd = format(endOfWeek(dateToday), "yyyy-MM-dd");
   const locationValue = document.querySelector("#inputLocation").value;
   const fetchWeatherReport = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationValue}/${dateToday}/${dateEnd}?key=3BZCY9DLAUZ38XRC8GGN95VYW`,

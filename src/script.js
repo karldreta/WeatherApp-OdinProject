@@ -1,31 +1,29 @@
 import "./styles.css";
-import { format } from "date-fns";
+import { format, endOfWeek, eachDayOfInterval } from "date-fns";
 import { fetchLocation } from "./modules/handleAPI";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   document.querySelector("form").addEventListener("submit", displayToDOM);
+
+    // We'll grab the dates first so we can change the textContents of each day button as soon as DOM loads.
+  const dateToday = format(new Date(), "yyyy-MM-dd");
+  const dateEnd = format(endOfWeek(dateToday), "yyyy-MM-dd");
+  const weekNow = eachDayOfInterval({
+    start: dateToday,
+    end: dateEnd,
+  });
+  const formattedWeekNow = weekNow.map(day => format(day, 'E'));
+  const buttons = document.querySelectorAll(".button");
+  buttons.forEach((button, index) => {
+    if (index <= formattedWeekNow.length) {
+      button.textContent = formattedWeekNow[index];
+    }
+  });
+
   async function displayToDOM(e) {
-    const locationDetails = await fetchLocation(e);
+    // We'll pass in the dates to only fetch the ones we need
+    const locationDetails = await fetchLocation(e, dateToday, dateEnd);
     console.log(locationDetails);
     console.log(locationDetails.currentWeek[0].temp);
-
-    const daysOfWeek = convertDateToName(locationDetails.currentWeek);
-    console.log(daysOfWeek);
-    const buttons = document.querySelectorAll(".button");
-    buttons.forEach((button, index) => {
-      if (index <= daysOfWeek.length) {
-        button.textContent = daysOfWeek[index];
-      }
-    });
-  }
-
-  function convertDateToName(dates) {
-    const nameOfDays = [];
-    dates.forEach((day) => {
-      nameOfDays.push(format(day.datetime, "E"));
-    });
-    return nameOfDays;
   }
 });
-
-// 0 : {datetime: '2024-09-15', datetimeEpoch: 1726329600, tempmax: 85.7, tempmin: 76.2, temp: 80.5, …}
