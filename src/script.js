@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // Render to DOM, well don't need to store the variables since we'll just  use it immediately and once.
     document.querySelector(".span.temp").textContent = locationDetails.tempWeek;
     document.querySelector(".span.description").textContent = locationDetails.descriptionWeek;
+    document.querySelector(".span.address").textContent = locationDetails.address;
 
   }
 });
