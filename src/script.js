@@ -1,5 +1,5 @@
 import "./styles.css";
-import { format, endOfWeek, eachDayOfInterval } from "date-fns";
+import { format, addDays, eachDayOfInterval } from "date-fns";
 import { fetchLocation } from "./modules/handleAPI";
 
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   // We'll grab the dates first so we can change the textContents of each day button as soon as DOM loads.
   const dateToday = format(new Date(), "yyyy-MM-dd");
-  const dateEnd = format(endOfWeek(dateToday), "yyyy-MM-dd");
-  console.log(dateEnd);
-  
+  const dateEnd = format(addDays(dateToday, 6), "yyyy-MM-dd"); // We'll just need to add the days (6) from today.
+
   const weekNow = eachDayOfInterval({
     start: dateToday,
     end: dateEnd,
