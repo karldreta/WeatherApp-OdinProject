@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   async function displayToDOM(e) {
     // Then, we'll pass in the dates to only fetch the ones we need
     const locationDetails = await fetchLocation(e, dateToday, dateEnd);
-    console.log(locationDetails);
-
     const toConvert = document.querySelector(".span.temp");
     toConvert.textContent = `${locationDetails.tempWeek}°F`;
     toConvert.addEventListener("click", convertDegree);
@@ -36,6 +34,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
       locationDetails.descriptionWeek;
     document.querySelector(".span.address").textContent =
       locationDetails.address;
+
+    return locationDetails.currentWeek;
   }
 
   function convertDegree(e) {
@@ -49,5 +49,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
       const degreeF = Math.round(degreeC * (9 / 5) + 32);
       e.target.textContent = `${degreeF}°F`;
     }
+  }
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => displayDay(index));
+  });
+  async function displayDay(index) {
+    console.log(index);
+    const currentWeek = await displayToDOM(e); // This will be an array of the current week, we will still need to isolate each day.
+    console.log(currentWeek[index]);
   }
 });
