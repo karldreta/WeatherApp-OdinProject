@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 h1,
@@ -68,4 +69,10 @@ main > #dayInfoPanel {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.span.temp {
+  /* border: 1px solid black; */
+  padding: 0 15px;
+  cursor: pointer;
 }

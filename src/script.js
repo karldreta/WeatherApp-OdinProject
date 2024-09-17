@@ -26,11 +26,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const locationDetails = await fetchLocation(e, dateToday, dateEnd);
     console.log(locationDetails);
 
-    // Render to DOM, well don't need to store the variables since we'll just  use it immediately and once.
-    document.querySelector(".span.temp").textContent = locationDetails.tempWeek;
+    const toConvert = document.querySelector(".span.temp");
+    toConvert.textContent = `${locationDetails.tempWeek}°F`;
+    toConvert.addEventListener("click", convertDegree);
+    toConvert.style.border = "1px solid black";
+
+    // Render to DOM, we don't need to store the variables below since we'll just  use it immediately and once.
     document.querySelector(".span.description").textContent =
       locationDetails.descriptionWeek;
     document.querySelector(".span.address").textContent =
       locationDetails.address;
+  }
+
+  function convertDegree(e) {
+    let degree = e.target.textContent;
+    if (degree.endsWith("F")) {
+      const degreeF = parseInt(degree.slice(0, degree.indexOf("F")));
+      const degreeC = Math.round((5 / 9) * (degreeF - 32));
+      e.target.textContent = `${degreeC}°C`;
+    } else if (degree.endsWith("C")) {
+      const degreeC = parseInt(degree.slice(0, degree.indexOf("C")));
+      const degreeF = Math.round(degreeC * (9 / 5) + 32);
+      e.target.textContent = `${degreeF}°F`;
+    }
   }
 });

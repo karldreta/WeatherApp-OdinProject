@@ -12,7 +12,7 @@ export async function fetchLocation(e, dateToday, dateEnd) {
   const timezone = weatherReport.timezone;
   const address = weatherReport.resolvedAddress;
   const descriptionWeek = weatherReport.description;
-  const tempWeek = weatherReport.currentConditions.temp;
+  const tempWeek = Math.round(weatherReport.currentConditions.temp);
 
   return { currentWeek, descriptionWeek, tempWeek, timezone, address };
 }
