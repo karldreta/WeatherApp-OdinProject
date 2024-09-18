@@ -71,7 +71,8 @@ main > #dayInfoPanel {
   gap: 20px;
 }
 
-.span.temp {
+.span.temp,
+.span.todayTemp {
   /* border: 1px solid black; */
   padding: 0 15px;
   cursor: pointer;

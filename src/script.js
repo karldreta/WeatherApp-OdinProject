@@ -1,5 +1,5 @@
 import "./styles.css";
-import { format, addDays, eachDayOfInterval } from "date-fns";
+import { format, addDays, eachDayOfInterval, parse } from "date-fns";
 import { fetchLocation } from "./modules/handleAPI";
 
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       locationDetails.descriptionWeek;
     document.querySelector(".span.address").textContent =
       locationDetails.address;
-      document.querySelector(".span.timezone").textContent =
+    document.querySelector(".span.timezone").textContent =
       locationDetails.timezone;
 
     return locationDetails.currentWeek;
@@ -58,17 +58,26 @@ document.addEventListener("DOMContentLoaded", (e) => {
     button.addEventListener("click", () => displayDay(index));
   });
   async function displayDay(index) {
-    console.log(index);
     const currentWeek = await displayToDOM(e); // This will be an array of the current week, we will still need to isolate each day.
     const todayDetails = currentWeek[index];
-
     const toConvert = document.querySelector(".span.todayTemp");
-    toConvert.textContent = `${todayDetails.temp}°F`;
+    toConvert.textContent = `${Math.round(todayDetails.temp)}°F`;
     toConvert.addEventListener("click", convertDegree);
     toConvert.style.border = "1px solid black";
 
-    document.querySelector(".span.todayDate").textContent = format(todayDetails.datetime, "d MMM, yyyy");
-
-    console.log(todayDetails);
+    document.querySelector(".span.todayDate").textContent = format(
+      todayDetails.datetime,
+      "d MMM, yyyy",
+    );
+    document.querySelector(".span.todayDesc").textContent =
+      todayDetails.description;
+    document.querySelector(".span.todayCond").textContent =
+      todayDetails.conditions;
+    document.querySelector(".span.todaySunset").textContent = format(
+      parse(todayDetails.sunset, "HH:mm:ss", new Date()),
+      "h:m a",
+    );
+    document.querySelector(".span.todayHum").textContent =
+      todayDetails.humidity;
   }
 });
