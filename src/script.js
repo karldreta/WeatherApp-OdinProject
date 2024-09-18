@@ -60,6 +60,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
   async function displayDay(index) {
     console.log(index);
     const currentWeek = await displayToDOM(e); // This will be an array of the current week, we will still need to isolate each day.
-    console.log(currentWeek[index]);
+    const todayDetails = currentWeek[index];
+
+    const toConvert = document.querySelector(".span.todayTemp");
+    toConvert.textContent = `${todayDetails.temp}°F`;
+    toConvert.addEventListener("click", convertDegree);
+    toConvert.style.border = "1px solid black";
+
+    document.querySelector(".span.todayDate").textContent = format(todayDetails.datetime, "d MMM, yyyy");
+
+    console.log(todayDetails);
   }
 });
