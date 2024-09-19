@@ -77,3 +77,20 @@ main > #dayInfoPanel {
   padding: 0 15px;
   cursor: pointer;
 }
+
+dialog.alert {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.alertMessageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
