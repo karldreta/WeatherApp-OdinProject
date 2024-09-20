@@ -56,14 +56,14 @@ form {
 
 form > #inputLocation {
   width: 300px;
-  height: 30px;
+  height: 40px;
   padding: 10px;
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   outline: none;
   border: 1px solid black;
   box-shadow: 1px 1px 5px black;
-  border-radius: 13px;
+  border-radius: 20px;
   transform: rotate(5deg);
 }
 
@@ -74,7 +74,7 @@ form #searchLocation {
   margin: 0;
   cursor: pointer;
   outline: none;
-  font-size: 18px;
+  font-size: 22px;
   transform: translateX(30%) translateY(-60%);
 }
 
