@@ -32,19 +32,21 @@ body {
 }
 
 #header > .titleContainer {
-  border: 1px solid black;
+  box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
   width: fit-content;
   height: auto;
   display: flex;
   flex-direction: column;
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: 40px;
+  transform: rotate(350deg);
 }
 
 #header > .titleContainer > h1 {
   font-size: 20px;
-  padding: 5px;
+  padding: 10px;
 }
 
 form {
@@ -59,8 +61,10 @@ form > #inputLocation {
   text-align: center;
   font-size: 12px;
   outline: none;
-  border: 2px solid black;
+  border: 1px solid black;
+  box-shadow: 1px 1px 5px black;
   border-radius: 13px;
+  transform: rotate(5deg);
 }
 
 form #searchLocation {
@@ -71,7 +75,7 @@ form #searchLocation {
   cursor: pointer;
   outline: none;
   font-size: 18px;
-  transform: translateX(30%) translateY(10%);
+  transform: translateX(30%) translateY(-60%);
 }
 
 main {
