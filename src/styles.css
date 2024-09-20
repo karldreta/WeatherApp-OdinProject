@@ -63,6 +63,17 @@ form > #inputLocation {
   border-radius: 13px;
 }
 
+form #searchLocation {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  transform: translateX(30%) translateY(10%);
+}
+
 main {
   border: 1px solid red;
   margin-top: 105px;
