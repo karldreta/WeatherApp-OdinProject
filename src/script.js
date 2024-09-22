@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   async function displayDay(currentWeek, index) {
     const Week = currentWeek; // This will be an array of the current week, we will still need to isolate each day.
-    console.log(Week);
     const todayDetails = Week[index];
     const toConvert = document.querySelector(".span.todayTemp");
     toConvert.textContent = `${Math.round(todayDetails.temp)}°F`;
