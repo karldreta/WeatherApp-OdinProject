@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const toConvert = document.querySelector(".span.temp");
     toConvert.textContent = `${locationDetails.tempWeek}°F`;
     toConvert.addEventListener("click", convertDegree);
-    toConvert.style.border = "1px solid black";
 
     // Render to DOM, we don't need to store the variables below since we'll just  use it immediately and once.
     document.querySelector(".span.description").textContent =

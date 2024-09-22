@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  user-select: none;
+  /* user-select: none; */
 }
 
 h1,
@@ -79,9 +79,9 @@ form #searchLocation {
 }
 
 main {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 105px;
-  width: 100vw;
+  width: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +94,34 @@ main > #weatherInfoContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 10px 0px;
+  padding: 0px;
+}
+
+h2.titleHeader {
+  align-self: baseline;
+}
+
+/* Below: Grid */
+
+main > #weatherInfoContainer > #currentWeekInfo {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+}
+
+.span.temp,
+.span.todayTemp {
+  /* border: 1px solid black; */
+  width: max-content;
+  grid-row: 1 / 5;
+  text-align: center;
+  justify-self: center;
+  font-size: 50px;
+  cursor: pointer;
 }
 
 #weatherInfoContainer #selectDateContianer {
@@ -119,13 +146,6 @@ main > #dayInfoPanel {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.span.temp,
-.span.todayTemp {
-  /* border: 1px solid black; */
-  padding: 0 15px;
-  cursor: pointer;
 }
 
 /* Below: Dialog */
