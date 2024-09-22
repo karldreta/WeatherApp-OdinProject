@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     // Render to DOM, we don't need to store the variables below since we'll just  use it immediately and once.
     document.querySelector(".span.description").textContent =
-      locationDetails.descriptionWeek;
+      `"${locationDetails.descriptionWeek}"`;
     document.querySelector(".span.address").textContent =
       locationDetails.address;
     document.querySelector(".span.timezone").textContent =
@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // We'll don't want to return the array, since the displayDay is dependent on this function, we would have to chain the second function from here.
     //  Else the buttons can start calling the function without adding location at the initial load.
     buttons.forEach((button, index) => {
-      button.addEventListener("click", () => displayDay(locationDetails.currentWeek, index));
+      button.addEventListener("click", () =>
+        displayDay(locationDetails.currentWeek, index),
+      );
     });
   }
 
@@ -58,19 +60,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
   }
 
   async function displayDay(currentWeek, index) {
+    document.querySelector("#dayInfoPanel").style.display = "grid";
     const Week = currentWeek; // This will be an array of the current week, we will still need to isolate each day.
     const todayDetails = Week[index];
     const toConvert = document.querySelector(".span.todayTemp");
     toConvert.textContent = `${Math.round(todayDetails.temp)}°F`;
     toConvert.addEventListener("click", convertDegree);
-    toConvert.style.border = "1px solid black";
 
     document.querySelector(".span.todayDate").textContent = format(
       todayDetails.datetime,
       "d MMM, yyyy",
     );
     document.querySelector(".span.todayDesc").textContent =
-      todayDetails.description;
+      `"${todayDetails.description}"`;
     document.querySelector(".span.todayCond").textContent =
       todayDetails.conditions;
     document.querySelector(".span.todaySunset").textContent = format(

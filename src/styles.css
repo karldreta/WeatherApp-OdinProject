@@ -23,7 +23,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
-#header {
+header#header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +43,7 @@ body {
   top: 20px;
   left: 40px;
   transform: rotate(350deg);
+  z-index: 1000;
 }
 
 #header > .titleContainer > h1 {
@@ -80,7 +82,8 @@ form #searchLocation {
 main {
   /* border: 1px solid red; */
   margin-top: 105px;
-  width: max-content;
+  width: 80vw;
+  min-width: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,6 +101,7 @@ main > #weatherInfoContainer {
 
 h2.titleHeader {
   align-self: baseline;
+  font-size: 25px;
 }
 
 /* Below: Grid */
@@ -116,12 +120,12 @@ main > #weatherInfoContainer > #currentWeekInfo {
 }
 
 main > #weatherInfoContainer > #currentWeekInfo::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   left: 49%;
-  width: 3px; 
+  width: 3px;
   background-color: black;
   border-radius: 2px;
 }
@@ -158,12 +162,46 @@ main > #weatherInfoContainer > #currentWeekInfo::before {
   background-color: black;
 }
 
-
 main > #dayInfoPanel {
-  width: 80vw;
-  border: 1px solid green;
-  display: grid;
+  width: 100%;
+  height: auto;
+  display: none;
   grid-template-columns: repeat(2, 1fr);
+  border: 3px solid black;
+  border-left: transparent;
+  border-right: transparent;
+  padding: 20px;
+  column-gap: 50px;
+  position: relative;
+}
+
+main > #dayInfoPanel:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 49%;
+  width: 3px;
+  height: 85%;
+  background-color: black;
+  align-self: center;
+  border-radius: 2px;
+}
+
+main > #dayInfoPanel h3 {
+  font-size: 22px;
+}
+
+main > #dayInfoPanel h3 span {
+  display: block;
+  font-size: 18px;
+  margin-left: 60px;
+}
+
+main > #dayInfoPanel h3 span.span.todayTemp {
+  font-size: 31px;
+  cursor: pointer;
+  margin-left: 100px;
 }
 
 #dayInfoPanel div {
