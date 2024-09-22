@@ -32,6 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--bg-color);
 }
 header#header {
   position: relative;
@@ -47,11 +48,12 @@ header#header {
 }
 
 #header > .titleContainer {
-  border: 2px solid #000;
+  border: 5px solid var(--primary-color);
   box-shadow:
-    10px 10px 0 -2px #fff,
-    10px 10px #000;
+    10px 10px 0 -2px var(--bg-color),
+    15px 15px var(--primary-color);
   background-color: #fff;
+  color: var(--text-color);
   width: fit-content;
   height: auto;
   display: flex;
@@ -79,12 +81,17 @@ form > #inputLocation {
   text-align: center;
   font-size: 18px;
   outline: none;
-  border: 1px solid black;
-  box-shadow: 1px 1px 5px black;
+  border: 2px solid var(--primary-color);
   border-radius: 20px;
   font-family: "Lobster", sans-serif;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 0.5px;
+}
+
+form > #inputLocation:hover,
+form > #inputLocation:focus {
+  box-shadow: 10px 10px #000;
 }
 
 form #searchLocation {
@@ -95,7 +102,7 @@ form #searchLocation {
   cursor: pointer;
   outline: none;
   font-size: 22px;
-  transform: translateX(30%);
+  transform: translateX(40%);
 }
 
 main {
@@ -110,7 +117,7 @@ main {
 }
 
 main > #weatherInfoContainer {
-  border-top: 3px solid black;
+  border-top: 3px solid var(--primary-color);
   width: 80vw;
   display: flex;
   flex-direction: column;
@@ -121,6 +128,11 @@ main > #weatherInfoContainer {
 h2.titleHeader {
   align-self: baseline;
   font-size: 25px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-color);
 }
 
 /* Below: Grid */
@@ -136,6 +148,12 @@ main > #weatherInfoContainer > #currentWeekInfo {
   justify-content: center;
   row-gap: 10px;
   position: relative;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 1px;
+  color: var(--text-color);
 }
 
 main > #weatherInfoContainer > #currentWeekInfo::before {
@@ -145,17 +163,28 @@ main > #weatherInfoContainer > #currentWeekInfo::before {
   bottom: 0;
   left: 49%;
   width: 3px;
-  background-color: black;
+  background-color: var(--primary-color);
   border-radius: 2px;
 }
 
 .span.temp {
   width: max-content;
+  height: max-content;
   grid-row: 1 / 5;
   text-align: center;
   justify-self: center;
-  font-size: 50px;
+  font-size: 70px;
   cursor: pointer;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--warning-color);
+  padding: 20px;
+}
+
+.span.temp:hover {
+  text-shadow: 4px 4px var(--primary-color);
 }
 
 /* Below: buttons */
