@@ -40,9 +40,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // We'll don't want to return the array, since the displayDay is dependent on this function, we would have to chain the second function from here.
     //  Else the buttons can start calling the function without adding location at the initial load.
     buttons.forEach((button, index) => {
-      button.addEventListener("click", () =>
-        displayDay(locationDetails.currentWeek, index),
-      );
+      // Use a regular function to capture `this`
+      button.addEventListener("click", function (e) {
+        displayDay(locationDetails.currentWeek, index, this);
+      });
     });
   }
 
@@ -59,7 +60,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   }
 
-  async function displayDay(currentWeek, index) {
+  async function displayDay(currentWeek, index, buttonElement) {
+    // We'll style the buttons with class = "active"
+    document.querySelectorAll("button").forEach((button) => {
+      button.classList.remove("active");
+    });
+    buttonElement.classList.add("active");
     document.querySelector("#dayInfoPanel").style.display = "grid";
     const Week = currentWeek; // This will be an array of the current week, we will still need to isolate each day.
     const todayDetails = Week[index];
