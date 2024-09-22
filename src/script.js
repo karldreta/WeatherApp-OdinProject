@@ -37,7 +37,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
     document.querySelector(".span.timezone").textContent =
       locationDetails.timezone;
 
-    return locationDetails.currentWeek;
+    // We'll don't want to return the array, since the displayDay is dependent on this function, we would have to chain the second function from here.
+    //  Else the buttons can start calling the function without adding location at the initial load.
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", () => displayDay(locationDetails.currentWeek, index));
+    });
   }
 
   function convertDegree(e) {
@@ -53,12 +57,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   }
 
-  buttons.forEach((button, index) => {
-    button.addEventListener("click", () => displayDay(index));
-  });
-  async function displayDay(index) {
-    const currentWeek = await displayToDOM(e); // This will be an array of the current week, we will still need to isolate each day.
-    const todayDetails = currentWeek[index];
+  async function displayDay(currentWeek, index) {
+    const Week = currentWeek; // This will be an array of the current week, we will still need to isolate each day.
+    console.log(Week);
+    const todayDetails = Week[index];
     const toConvert = document.querySelector(".span.todayTemp");
     toConvert.textContent = `${Math.round(todayDetails.temp)}°F`;
     toConvert.addEventListener("click", convertDegree);
