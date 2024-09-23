@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  /* user-select: none; */
+  user-select: none;
 }
 
 :root {
@@ -12,6 +12,7 @@
   --warning-color: #fb2e01;
   --text-color: #666547;
   --dayInfo: #ff901f;
+  --header: #86ddcd;
 }
 
 h1,
@@ -26,6 +27,7 @@ ul {
 }
 
 body {
+  position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -34,24 +36,45 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--bg-color);
+  overflow-x: hidden;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--warning-color);
+  border-radius: 10px;
+  border: 3px solid var(--accent-color);
+}
+
 header#header {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  margin-top: 20px;
+  height: 150px;
+  background-color: var(--header);
+  box-shadow: 5px 5px var(--primary-color);
+  margin-top: 0px;
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 5px;
   font-weight: 400;
   font-style: normal;
+  z-index: 1000;
 }
 
 #header > .titleContainer {
   border: 5px solid var(--primary-color);
   box-shadow:
-    10px 10px 0 -2px var(--bg-color),
+    10px 10px 0 -2px var(--header),
     15px 15px var(--primary-color);
   background-color: #fff;
   color: var(--text-color);
@@ -82,7 +105,7 @@ form > #inputLocation {
   text-align: center;
   font-size: 18px;
   outline: none;
-  border: 2px solid var(--primary-color);
+  border: 3px solid var(--primary-color);
   border-radius: 20px;
   font-family: "Lobster", sans-serif;
   font-weight: 400;
@@ -108,7 +131,8 @@ form #searchLocation {
 
 main {
   /* border: 1px solid red; */
-  margin-top: 105px;
+  position: relative;
+  margin-top: 150px;
   width: 80vw;
   /* min-width: max-content; */
   display: flex;
