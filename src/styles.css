@@ -59,7 +59,7 @@ header#header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 150px;
   background-color: var(--header);
   box-shadow: 5px 5px var(--primary-color);
@@ -127,6 +127,11 @@ form #searchLocation {
   outline: none;
   font-size: 22px;
   transform: translateX(40%);
+  color: var(--bg-color);
+}
+
+form #searchLocation:hover {
+  color: var(--warning-color);
 }
 
 main {
@@ -322,6 +327,7 @@ main > #dayInfoPanel h3 span.span.todayTemp {
 
 #dayInfoPanel div h3.dayInfo span.span.todayTemp {
   color: var(--warning-color);
+  width: max-content;
 }
 
 .span.todayTemp:hover {
@@ -332,12 +338,19 @@ main > #dayInfoPanel h3 span.span.todayTemp {
 
 dialog.alert {
   position: fixed;
+  width: 400px;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   padding: 10px;
   z-index: 1000;
+  border: 2px solid var(--warning-color);
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  box-shadow:
+    10px 10px 0 -2px var(--accent-color),
+    10px 10px var(--warning-color);
 }
 
 .alertMessageContainer {
@@ -345,4 +358,26 @@ dialog.alert {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+}
+
+.alertMessageContainer button.closeModal {
+  border: 2px solid var(--dayInfo);
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--dayInfo);
+  outline: none;
+}
+
+.alertMessageContainer button.closeModal:hover {
+  cursor: pointer;
+  border: 2px solid var(--warning-color);
+  background-color: var(--header);
+  color: var(--warning-color);
+}
+
+dialog.alert .alertMessageContainer p {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 17px;
+  color: #ff3036;
 }
