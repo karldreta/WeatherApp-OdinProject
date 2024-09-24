@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Weather App | Odin Project</title>
+    <script defer src="bundle.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="titleContainer">
+        <h1>
+          <div>Weekly</div>
+          <div>Weather</div>
+          <div>Watcher</div>
+        </h1>
+      </div>
+      <form action="#" method="post">
+        <input type="text" id="inputLocation" placeholder="Enter City" />
+        <button
+          id="searchLocation"
+          class="fa-solid fa-magnifying-glass"
+        ></button>
+      </form>
+    </header>
+    <main>
+      <h2 class="titleHeader">This Week</h2>
+      <div id="weatherInfoContainer">
+        <div id="currentWeekInfo">
+          <h3 class="span temp">
+            <!-- 77°F -->
+          </h3>
+          <h3 class="span timezone">
+            <!-- Asia/Manila -->
+          </h3>
+          <h3 class="span address">
+            <!-- Davao City, Davao Region, Philippines -->
+          </h3>
+          <h3 class="span description">
+            <!-- Similar temperatures continuing with a chance of rain multiple days. -->
+          </h3>
+        </div>
+        <div id="selectDateContianer">
+          <button class="button day1"></button>
+          <button class="button day2"></button>
+          <button class="button day3"></button>
+          <button class="button day4"></button>
+          <button class="button day5"></button>
+          <button class="button day6"></button>
+          <button class="button day7"></button>
+        </div>
+      </div>
+      <div id="dayInfoPanel">
+        <div class="dayInfoLeft">
+          <h3 class="dayInfo">Temp: <span class="span todayTemp"></span></h3>
+          <h3 class="dayInfo">Date: <span class="span todayDate"></span></h3>
+          <h3 class="dayInfo">
+            Description: <span class="span todayDesc"></span>
+          </h3>
+        </div>
+        <div class="dayInfoRight">
+          <h3 class="dayInfo">
+            Conditions: <span class="span todayCond"></span>
+          </h3>
+          <h3 class="dayInfo">
+            Sunset: <span class="span todaySunset"></span>
+          </h3>
+          <h3 class="dayInfo">Humidity: <span class="span todayHum"></span></h3>
+        </div>
+      </div>
+    </main>
+    <dialog class="alert">
+      <div class="alertMessageContainer">
+        <button class="closeModal">X</button>
+        <p>
+          There was an issue fetching the weather data. Please try again with a
+          more specific location or later.
+        </p>
+      </div>
+    </dialog>
+  </body>
+</html>
